@@ -1,0 +1,46 @@
+{% extends 'frontend/base.html' %}
+
+{% load static %}
+
+{% block title %}
+    cart-page
+{% endblock %}
+
+{% block content %}
+<p>
+    {% load cart_tag %}
+
+Total Length :: {{request.session.cart|length}}
+
+Cart Detail:
+
+</p><br>
+ {% if request.session.cart.items %}       
+{% for key,value in request.session.cart.items %}
+
+<a href="{% url 'frontend:cart_clear' %}"><i class="fa fa-trash"></i>Delete all your cart</a><br>
+
+<div class="col-md-6">
+    
+    product name:{{value.name}}<br> price:<a href="#">${{value.price}}</a><br> quantity:{{value.quantity}}<br> <img src="{{value.image}}" alt="img" width="200px" height="200px"><br> Total price: <a href="#">${{ value.price|multiply:value.quantity }}</a>
+<br>
+<a href="{% url 'frontend:item_clear' value.product_id %}"><i class="fa fa-trash"></i>Delete this item</a><br>
+<a href="{% url 'frontend:item_increment' value.product_id %}">+Increment</a><br>
+<a href="{% url 'frontend:item_decrement' value.product_id %}">-Decrement</a><br><br>
+
+
+<a href="{% url 'home' %}" class="btn btn-success">Continue Shopping</a> <a href="{% url 'frontend:checkout' %}" class="btn btn-primary">Proceed to checkout</a>
+    
+            
+
+</div>
+    
+{% endfor %}
+
+    {% else %}
+        <h3>your cart is empty </h3>
+{% endif %}
+
+
+
+{% endblock %}

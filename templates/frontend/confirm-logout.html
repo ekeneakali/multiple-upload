@@ -1,0 +1,14 @@
+{% extends 'frontend/base.html' %}
+
+{% load static %}
+
+{% block title %}
+    confirm-logout
+{% endblock %}
+
+
+{% block content %}
+    <center>
+        are you sure younwant to log out <a href="{% url 'frontend:logout' %}" class="btn btn-primary">yes</a> or <a href="{% url 'home' %}" class="btn btn-primary">no</a>
+    </center>
+{% endblock %}

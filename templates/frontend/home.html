@@ -1,0 +1,32 @@
+
+{% extends 'frontend/base.html' %}
+
+{% load static %}
+
+
+{% block content %}
+
+
+    <div class="container">
+        <div class="row">
+            {% for x in post %}
+            <div class="col-md-6">
+                
+
+                    {{x.name}}
+                    <p><a href="#">${{x.price}}</a></p>
+                    <img src="{{x.image.url}}" alt="img" width="200px" height="200px">
+
+                    
+                        
+                    <a href="{% url 'frontend:two' x.id %}" class="btn btn-primary">Shop now</a
+                    -->
+
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+
+
+{% endblock %}

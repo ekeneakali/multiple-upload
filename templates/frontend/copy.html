@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>copy</title>
+    {% load hitcount_tags %}
+</head>
+<body>
+
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, autem officiis praesentium quam id voluptate sed eius at dolor natus sequi quidem doloremque minima ab dolorum! A magnam rerum ab.
+    
+    {% for x in race %}
+        {{x.title}}
+        <img src="{{x.files.url}}" alt="img">
+        <p>
+        
+        </p>
+        <a href="{% url 'frontend:one' x.id %}">Readmore</a>
+    {% endfor %}
+</body>
+</html>

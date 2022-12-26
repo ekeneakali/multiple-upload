@@ -1,0 +1,28 @@
+{% extends 'frontend/base.html' %}
+
+{% load static %}
+
+{% block title %}
+  edit profile
+{% endblock %}
+
+{% block content %}
+  <h1>Edit Your Profile Here</h1>
+
+    {% if messages %}
+      {% for mes in messages %}
+        <div class="alert alert-success">{{mes}}</div>
+      {% endfor %}
+    {% endif %}
+
+    <form method="post" enctype="multipart/form-data">
+      <table class="table table-bordered">
+        {{form.as_table}}
+      </table>
+      <button type="submit" class="btn btn-primary">send</button>
+
+      {% csrf_token %}
+
+    </form>
+      
+{% endblock %}

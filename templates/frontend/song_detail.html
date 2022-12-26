@@ -1,0 +1,6 @@
+{% for song in songs %}
+    <p><strong><h5>{{ song.song_title }}</h5></strong></p>
+    <p><h5>{{ song.artist }}</h5></p>
+    <span>plays: {% get_hit_count for [song] %}</span>
+    <a href="{% url 'song-detail' song.id %}">Play song</a>
+{% endfor %}

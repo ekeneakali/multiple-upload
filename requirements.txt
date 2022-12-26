@@ -1,0 +1,13 @@
+asgiref==3.2.10
+certifi==2021.10.8
+Django @ file:///tmp/build/80754af9/django_1600355803933/work
+django-phonenumber-field==6.3.0
+django-shopping-cart==0.1
+django-social-share==2.2.1
+Pillow==9.0.1
+psycopg2 @ file:///C:/ci/psycopg2_1612298715048/work
+pytz==2021.3
+six==1.16.0
+sqlparse @ file:///tmp/build/80754af9/sqlparse_1602184451250/work
+typing-extensions @ file:///tmp/build/80754af9/typing_extensions_1631814937681/work
+wincertstore==0.2

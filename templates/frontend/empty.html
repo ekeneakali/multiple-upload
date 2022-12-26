@@ -1,0 +1,19 @@
+<div class="col-md-3">
+    {% csrf_token %}
+    <input type="hidden" value="{{race.id}}" class="prod_id">
+    <p><h3>Quantity</h3></p>
+    <div class="input-group-text mb-3" style="width:130px;">
+        <button class="input-group-text decrement-btn">-</button>
+        <input type="text" name="quantity" class="form-control qty-input text-center" value="1">
+        <button class="input-group-text increment-btn">+</button>
+    </div>
+
+
+
+
+
+
+</div>
+
+order = Order.objects.create(order_name=image)
+order.save()

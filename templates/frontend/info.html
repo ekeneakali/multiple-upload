@@ -1,0 +1,35 @@
+<!-- django_project/users/templates/register.html -->
+{% extends "frontend/base.html" %}
+
+{% load static %}
+
+{% block title %}
+    info
+{% endblock %}
+
+    {% load crispy_forms_tags %}
+{% block content %}
+{% if messages %}
+{% for mes in messages %}
+    <div class="alert alert-success">{{mes}}</div>
+{% endfor %}
+{% endif %}
+
+        
+    <div class="content-section">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Join Today</legend>
+                {{ form|crispy }}
+            </fieldset>
+
+        
+
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">send</button>
+            </div>
+        </form>
+        
+    </div>
+{% endblock %}

@@ -1,0 +1,16 @@
+<!-- django_project/users/templates/register.html -->
+{% extends "frontend/base.html" %}
+
+{% load static %}
+
+{% block title %}
+    register
+{% endblock %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+        {% for x in post %}
+            {{x.name}}
+        {% endfor %}
+{% endblock %}

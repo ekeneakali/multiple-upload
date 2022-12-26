@@ -1,0 +1,59 @@
+{% extends 'frontend/base.html' %}
+
+{% load static %}
+
+{% block title %}
+    cart-page
+{% endblock %}
+
+{% block content %}
+Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni, ea eum magnam perspiciatis modi velit ipsa debitis atque dolore nesciunt? Soluta deleniti debitis placeat doloribus sapiente ex dicta cum repellat!
+
+<p>
+    {% load cart_tag %}
+
+Total Length :: {{request.session.cart|length}}
+
+Cart Detail:
+
+</p><br>
+        
+<form action="" class="form-control">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <input type="text" class="form-control" required name="username" placeholder="username"><br><br>
+                <input type="email" class="form-control" required name="email" placeholder="email"><br><br>
+                <input type="tel" class="form-control" required name="number" placeholder="number"><br><br>
+                <input type="text" class="form-control" required name="address" placeholder="billing address"><br><br>
+
+
+
+            
+                {% for key,value in request.session.cart.items %}
+
+<a href="{% url 'frontend:cart_clear' %}"><i class="fa fa-trash"></i>Delete all your cart</a><br>
+
+<div class="col-md-6">
+    
+    product name:{{value.name}}<br> price:<a href="#">${{value.price}}</a><br> quantity:{{value.quantity}}<br> <img src="{{value.image}}" alt="img" width="200px" height="200px"><br> Total price: <a href="#">${{ value.price|multiply:value.quantity }}</a>
+<br>
+<a href="{% url 'frontend:item_clear' value.product_id %}"><i class="fa fa-trash"></i>Delete this item</a><br>
+<a href="{% url 'frontend:item_increment' value.product_id %}">+Increment</a><br>
+<a href="{% url 'frontend:item_decrement' value.product_id %}">-Decrement</a><br><br>
+
+
+    
+            
+
+</div><br>
+    <button type="submit" class="btn btn-success">Place order</button><br>
+    
+{% endfor %}
+
+
+            </div>
+
+    
+</form> 
+{% endblock %}
